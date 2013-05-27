@@ -12,7 +12,7 @@ class WpNectarController{
 		register_activation_hook(NECTAR_FILE, array(get_class(), 'activate_the_plugin'));
 		
 		//add_action('blog_privacy_selector', array(get_class(), 'blog_privacy_selector'));
-		add_action('admin_menu', array(get_class(), 'admin_menu'));
+		add_action('admin_menu', array(get_class(), 'admin_menu'), 1000);
 	}
 	
 	static function blog_privacy_selector(){
@@ -54,8 +54,13 @@ class WpNectarController{
 	
 	
 	//tab selector
-	static function get_selected_tab(){
-		
+	static function get_appropriate_tab(){
+		if(isset($_GET['tab'])){
+			return self::load_file('templates/admin/tabs/tab_' . $_GET['tab'] . '.php');
+		}
+		else{
+			return self::load_file('templates/admin/tabs/tab_1.php');
+		}
 	}
 	
 	

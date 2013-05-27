@@ -61,6 +61,11 @@
 			
 	</h2>
 	
-	
+	<!-- Form for the whole thing  -->
+	<form action="" method="post">
+	<input type="hidden" name="nice_dashboard_submitted" value="Y" />
+	<?php include self::get_appropriate_tab(); ?>	
+	<input type="submit" value="Save" class="button button-primary" />
+	</form>
 	
 </div>
