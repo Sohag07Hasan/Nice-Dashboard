@@ -67,34 +67,43 @@ foreach($menu as $key => $m){
 }
 
 //var_dump($categoried);
+?>
+<!-- Form for the whole thing  -->
+<form action="" method="post">
+	<input type="hidden" name="nice_dashboard_submitted" value="Y" />
 
-if($categoried){
-	echo '<ul class="toplevel_menus">';
-	foreach($categoried as $key => $cat){
-		if(empty($cat['name'])) continue;
-		?>
-		<li>
-		<input <?php echo in_array($cat['slug'], $menus_submenus['toplevel_menus']) ? 'checked' : ''; ?> id="top_levl_menu_<?php echo $key; ?>" type="checkbox" name="toplevel_menus[]" value="<?php echo $cat['slug']; ?>" /> <label for="top_levl_menu_<?php echo $key; ?>" ><?php echo $cat['name']; ?></label>
-		<?php 
-		if(count($cat['submenus']) > 0){
+	<?php 
+	if($categoried){
+		echo '<ul class="toplevel_menus">';
+		foreach($categoried as $key => $cat){
+			if(empty($cat['name'])) continue;
 			?>
-			<ul class="submenus">
-				<?php 
-					foreach($cat['submenus'] as $k => $s){
-						if(empty($s['name'])) continue;
-						$value = array($cat['slug'], $s['slug']);
-						?>
-						<li>
-						<input <?php echo in_array(implode(', ', $value), $menus_submenus['submenus']) ? 'checked' : ''; ?> type="checkbox" name="submenus[]" value="<?php echo implode(', ', $value); ?>" id="sub_menu_<?php echo $key . '_' . $k; ?>" > <label for="sub_menu_<?php echo $key . '_' . $k; ?>"><?php echo $s['name']; ?></label>
-						</li>
-						<?php 						
-					}
-				?>
-			</ul>
+			<li>
+			<input <?php echo in_array($cat['slug'], $menus_submenus['toplevel_menus']) ? 'checked' : ''; ?> id="top_levl_menu_<?php echo $key; ?>" type="checkbox" name="toplevel_menus[]" value="<?php echo $cat['slug']; ?>" /> <label for="top_levl_menu_<?php echo $key; ?>" ><?php echo $cat['name']; ?></label>
 			<?php 
+			if(count($cat['submenus']) > 0){
+				?>
+				<ul class="submenus">
+					<?php 
+						foreach($cat['submenus'] as $k => $s){
+							if(empty($s['name'])) continue;
+							$value = array($cat['slug'], $s['slug']);
+							?>
+							<li>
+							<input <?php echo in_array(implode(', ', $value), $menus_submenus['submenus']) ? 'checked' : ''; ?> type="checkbox" name="submenus[]" value="<?php echo implode(', ', $value); ?>" id="sub_menu_<?php echo $key . '_' . $k; ?>" > <label for="sub_menu_<?php echo $key . '_' . $k; ?>"><?php echo $s['name']; ?></label>
+							</li>
+							<?php 						
+						}
+					?>
+				</ul>
+				<?php 
+			}
+			
+			echo '</li>';
 		}
-		
-		echo '</li>';
+		echo '</ul>';
 	}
-	echo '</ul>';
-}
+	
+	?>
+	<input type="submit" value="Save" class="button button-primary" />
+</form>

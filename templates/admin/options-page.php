@@ -67,23 +67,8 @@
 		}
 	?>
 	
-	<!-- Form for the whole thing  -->
-	<form action="" method="post">
-	<input type="hidden" name="nice_dashboard_submitted" value="Y" />
+	
 	<?php include self::get_appropriate_tab(); ?>
 	
-	<?php 
-		if(isset($is_form) && $is_form == 'no'){
-			//do nothing
-		}
-		else{
-			?>
-			<input type="submit" value="Save" class="button button-primary" />
-			<?php 
-		}
-	 ?>
-		
-	
-	</form>
-	
+
 </div>
