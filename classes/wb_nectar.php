@@ -118,7 +118,7 @@ if (!class_exists('wb_nectar')) {
 				$blurb = '<p><strong>Hi '.$current_user->display_name.'</strong>, welcome to your website\'s dashboard.</p>';
 				$blurb .= '<p>Watch the video below to learn how to use this dashboard and start editing or adding to your website\'s content in minutes.</p>';
 				$blurb .= '<span style="color: red;">VIMEO LINK HERE</span>';
-			echo $blurb;
+				echo $blurb;
 			}		
 			
 			// calling all custom dashboard widgets
@@ -150,6 +150,7 @@ if (!class_exists('wb_nectar')) {
 			$editor->add_cap('list_users');
 			$editor->add_cap('remove_users');
 			$editor->add_cap( 'chat_with_users' );
+			
 			
 			add_action('admin_menu', 'remove_menus', 102);
 			function remove_menus()

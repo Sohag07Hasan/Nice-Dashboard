@@ -21,14 +21,14 @@ foreach($menu as $key => $m){
 	if(isset($submenu[$m[2]])){
 		foreach($submenu[$m[2]] as $s){
 			$associated_submenus[] = array(
-				'name' => preg_replace('/[^a-zA-Z]/', '', strip_tags($s[0])),
+				'name' => preg_replace('/[^a-z A-Z]/', '', strip_tags($s[0])),
 				'slug' => $s[2]
 			);
 		}
 	}
 	
 	$categoried[] = array(
-		'name' => preg_replace('/[^a-zA-Z]/', '', strip_tags($m[0])),
+		'name' => preg_replace('/[^a-z A-Z]/', '', strip_tags($m[0])),
 		'slug' => $m[2],
 		'submenus' => $associated_submenus
 	);
@@ -43,7 +43,7 @@ if($categoried){
 		if(empty($cat['name'])) continue;
 		?>
 		<li>
-		<input id="top_levl_menu_<?php echo $key; ?>" type="checkbox" name="toplevel_menus[]" value="<?php echo $cat['slug']; ?>" /><label for="top_levl_menu_<?php echo $key; ?>" ><?php echo $cat['name']; ?></label>
+		<input id="top_levl_menu_<?php echo $key; ?>" type="checkbox" name="toplevel_menus[]" value="<?php echo $cat['slug']; ?>" /> <label for="top_levl_menu_<?php echo $key; ?>" ><?php echo $cat['name']; ?></label>
 		<?php 
 		if(count($cat['submenus']) > 0){
 			?>
@@ -57,7 +57,7 @@ if($categoried){
 						);
 						?>
 						<li>
-						<input type="checkbox" name="submenus[]" value="<?php echo serialize($value); ?>" id="sub_menu_<?php echo $key . '_' . $k; ?>" ><label for="sub_menu_<?php echo $key . '_' . $k; ?>"><?php echo $s['name']; ?></label>
+						<input type="checkbox" name="submenus[]" value="<?php echo serialize($value); ?>" id="sub_menu_<?php echo $key . '_' . $k; ?>" > <label for="sub_menu_<?php echo $key . '_' . $k; ?>"><?php echo $s['name']; ?></label>
 						</li>
 						<?php 						
 					}

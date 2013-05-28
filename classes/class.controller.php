@@ -13,7 +13,39 @@ class WpNectarController{
 		
 		//add_action('blog_privacy_selector', array(get_class(), 'blog_privacy_selector'));
 		add_action('admin_menu', array(get_class(), 'admin_menu'), 1000);
+		
+		
+		//dashboard only for admin
+		add_action('wp_dashboard_setup', array(get_class(), 'add_dashboard_widget'));
+		
 	}
+	
+	
+	/*
+	 * add a dashbaord widget 
+	 * */
+	static function add_dashboard_widget(){
+		if(current_user_can('manage_options')){
+			wp_add_dashboard_widget('nice_dashboard_filtering', 'Nice Dashboard', array(get_class(), 'nice_dashboard_widget'), array(get_class(), 'nice_dashboard_configure'));
+		}
+	}
+	
+	
+	/*
+	 * widget content
+	 * */
+	static function nice_dashboard_widget(){		
+		include self::load_file('templates/admin/nice-dashboard.php');
+	}
+	
+	
+	/*
+	 * configure nicd dashboard
+	 * */
+	static function nice_dashboard_configure(){
+		include self::load_file('templates/admin/nice-dashboard-configure.php');
+	}
+	
 	
 	static function blog_privacy_selector(){
 		var_dump(get_option('blog_public'));
