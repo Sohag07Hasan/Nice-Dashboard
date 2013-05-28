@@ -108,4 +108,14 @@ class WpNectarController{
 	}
 	
 	
+	/**
+	 *Binary file opening, write and close	 *
+	 */
+	static function file_write($file, $mode, $string){
+		$fp = fopen($file, $mode);
+		fwrite($fp, $string);
+		fclose($fp);
+	}
+	
+	
 }

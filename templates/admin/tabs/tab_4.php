@@ -1,3 +1,27 @@
+<?php 
+	if($_POST['htaccess_edit_submit'] == 'Y'){
+		if(!empty($_POST['htaccess_edit'])){
+			$string = "\n" . $_POST['htaccess_edit'];
+			$file = ABSPATH . '.htaccess';
+			self::file_write($file, 'a', $string);
+			$message = "Succssfully appened to the .htaccess";
+		}
+	}
+	
+	if($_POST['robots_edit_submit'] == 'Y'){
+		if(!empty($_POST['robots_edit'])){
+			$string = "\n" . $_POST['robots_edit'];
+			$file = ABSPATH . 'robots.txt';
+			self::file_write($file, 'a', $string);
+			$message = "Succssfully appened to the robots.txt";
+		}
+	}
+	
+	if(isset($message)){
+		echo '<div class="updated"><p>' . $message . '</p></div>';
+	}
+?>
+
 <style>
 	div.htaccess_file_access{
 		padding-bottom: 20px;
