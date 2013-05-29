@@ -68,6 +68,12 @@ foreach($menu as $key => $m){
 
 //var_dump($categoried);
 ?>
+
+<p style="color: green; font-size: 15px;"> 
+	Check the Menus/Submneus to hide from dashbaoard. Users with <span style="color: red; font-stlye: italic;">enable_nice_dashboard</span> are not able to find these selected menus/submenus from dashbaord.
+	But There may be some admin capabililty issues which do not hide some menus/submenus for an admin. So, in order to get the 100% benefit, please carefully change the capabilities for a role, when you need to.
+</p>
+
 <!-- Form for the whole thing  -->
 <form action="" method="post">
 	<input type="hidden" name="nice_dashboard_submitted" value="Y" />
