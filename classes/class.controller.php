@@ -69,6 +69,7 @@ class WpNectarController{
 	
 	//admin page to handle the options
 	static function admin_menu(){
+		if(current_user_can('enable_nice_dashboard')) return;
 		add_options_page('Wordpress Nicer Dashboard', 'Nectar', 'manage_options', 'wpnicerdashboard', array(get_class(), 'options_page_content'));	
 	}
 

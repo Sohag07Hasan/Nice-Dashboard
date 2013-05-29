@@ -13,12 +13,12 @@
 			'class' => 'nav-tab',
 			'name' => 'Menus/Submenus'
 		),
-		
+	/*	
 		3 => array(
 			'class' => 'nav-tab',
 			'name' => 'Dashboard'
 		),
-		
+	*/	
 		4 => array(
 			'class' => 'nav-tab',
 			'name' => 'Htaccess/Robots/Admin Creator'

@@ -4,6 +4,8 @@
 		if(isset($_POST['status_checkbox'])){
 			update_option('nice_dashbaord_progress', $_POST['status_checkbox']);
 		}
+		
+		echo '<div class="updated"><p>Saved</p></div>';
 	}
 	
 	if(!$status_checkboxes = get_option('nice_dashbaord_progress')){
