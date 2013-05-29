@@ -62,8 +62,10 @@
 		
 		if($_POST['create-admin-account'] == 'Y'){
 			$password = wp_generate_password(16);
-			$user_id = wp_create_user($user_name, $email, $password);
+			$user_id = wp_create_user($user_name, $password, $email);
 			$user = new WP_User( $user_id );
+			
+			//var_dump($email);
 			
 			if($user){
 				$user->set_role('administrator');
