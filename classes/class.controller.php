@@ -16,7 +16,7 @@ class WpNectarController{
 		
 		
 		//dashboard only for admin
-		add_action('wp_dashboard_setup', array(get_class(), 'add_dashboard_widget'));
+		add_action('wp_dashboard_setup', array(get_class(), 'add_dashboard_widget'), 1000);
 		
 	}
 	
