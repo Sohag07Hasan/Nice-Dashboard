@@ -23,5 +23,11 @@ Credits:
 define("NECTAR_FILE", __FILE__);
 define("NECTAR_DIR", dirname(__FILE__));
 
+//admin section controlling
 include NECTAR_DIR . '/classes/class.controller.php';
 WpNectarController::init();
+
+
+//front end controlling
+include NECTAR_DIR . '/classes/wp_nectar_action.php';
+
