@@ -93,7 +93,13 @@
 
 	jQuery(function() {
 	    var checkbox = jQuery(":checkbox"),
-	        checkbox_length = checkbox.length;
+	    checkbox_length = checkbox.length;
+
+	    //custom code to fire on load
+	    var checked_length = jQuery(":checkbox:checked").length;
+	    progress = checked_length / checkbox_length * 100;
+	    jQuery('.progress_bar').css('width', progress + '%');
+		//end custom code
 	    
 	    checkbox.change(function () {
 	        var that = jQuery(this),
