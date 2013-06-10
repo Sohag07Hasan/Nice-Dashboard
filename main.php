@@ -6,7 +6,8 @@ Plugin URI: http://www.wpbees.com
 Description: Sweet, sweet nectar. Tidies up the WordPress dashboard.
 Version: 1.0.0
 Author: WordPress Bees
-Author URI: http://www.wpbees.com
+Author URI: http://www.wpbees.com 
+* Modified by: Mahibul Hasan
 */
 /*
 
